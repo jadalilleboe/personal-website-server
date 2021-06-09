@@ -27,4 +27,16 @@ postSchema.set('toJSON', {
 	}
 })
 
-module.exports = mongoose.Model('Post', postSchema)
+const Post = mongoose.model('Post', postSchema)
+
+const post = new Post({
+    title: "My First Blog Post", 
+    content: "This is my my first blog post. Yippee.",
+    date: new Date()
+})
+
+post.save().then(result => {
+    console.log("added ppost")
+})
+
+mongoose.connection.close()

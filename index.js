@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
+const Post = require('./models/post')
 
 const app = express()
 
@@ -12,4 +13,8 @@ app.use(express.static('build'))
 app.use(morgan(':method :url :status :res[content-length] :body'))
 app.use(cors())
 
-app.get('/api/posts')
+app.get('/api/posts', (request, response) => {
+    Post.find({}).then(posts => {
+        response.json(posts)
+    })
+})
