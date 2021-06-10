@@ -34,4 +34,4 @@ postSchema.set('toJSON', {
 
 postSchema.plugin(AutoIncrement)
 
-module.exports = mongoose.Model('Post', postSchema)
+module.exports = mongoose.model('Post', postSchema)
