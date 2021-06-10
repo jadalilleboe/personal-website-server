@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const url = process.env.MONGODB_URI
 
@@ -13,10 +14,14 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFind
 	})
 
 const postSchema = new mongoose.Schema({
-    id: Number,
-    title: String,
-    content: String,
-    date: { type: Date, default: Date.now },
+	_id: Number,
+	title: String,
+	content: String,
+	excerpt: {
+		type: String,
+		maxLength: 200
+	},
+	date: { type: Date, default: Date.now },
 })
 
 postSchema.set('toJSON', {
@@ -26,5 +31,7 @@ postSchema.set('toJSON', {
 		delete returnedObject.__v
 	}
 })
+
+postSchema.plugin(AutoIncrement)
 
 module.exports = mongoose.Model('Post', postSchema)
