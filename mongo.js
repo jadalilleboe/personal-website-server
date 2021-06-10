@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const AutoIncrement = require('mongoose-sequence')(mongoose);
+require('dotenv').config()
 
 const url = process.env.MONGODB_URI
 
@@ -13,9 +15,13 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFind
 	})
 
 const postSchema = new mongoose.Schema({
-    id: Number,
+    _id: Number,
     title: String,
     content: String,
+	excerpt: {
+		type: String,
+		maxLength: 200
+	},
     date: { type: Date, default: Date.now },
 })
 
@@ -27,16 +33,29 @@ postSchema.set('toJSON', {
 	}
 })
 
+postSchema.plugin(AutoIncrement)
+
 const Post = mongoose.model('Post', postSchema)
 
-const post = new Post({
+const post1 = new Post({
     title: "My First Blog Post", 
     content: "This is my my first blog post. Yippee.",
+	excerpt: "first blog post",
+    date: new Date()
+})
+const post2 = new Post({
+    title: "My Second Blog Post", 
+    content: "This is my my second blog post. Yippee.",
+	excerpt: "second blog post",
     date: new Date()
 })
 
-post.save().then(result => {
+post1.save().then(result => {
     console.log("added ppost")
 })
+post2.save().then(result => {
+    console.log("added ppost")
+	mongoose.connection.close()
+})
 
-mongoose.connection.close()
+
