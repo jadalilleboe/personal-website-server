@@ -37,21 +37,12 @@ postSchema.plugin(AutoIncrement)
 
 const Post = mongoose.model('Post', postSchema)
 
-const post1 = new Post({
-    title: "My First Blog Post", 
-    content: "This is my my first blog post. Yippee.",
-	excerpt: "first blog post",
-    date: new Date()
-})
-const post2 = new Post({
-    title: "My Second Blog Post", 
-    content: "This is my my second blog post. Yippee.",
-	excerpt: "second blog post",
-    date: new Date()
-})
 
-post1.save().then(result => {
-    console.log("added ppost")
+const post2 = new Post({
+    title: "My Third Blog Post", 
+    content: "This is my my second blog post. Yippee.",
+	excerpt: "third blog post asdfjwoeiuewkfjkdhfweiuwr328947snhwhrfkdahks",
+    date: new Date()
 })
 post2.save().then(result => {
     console.log("added ppost")
