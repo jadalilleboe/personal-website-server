@@ -39,8 +39,8 @@ const Post = mongoose.model('Post', postSchema)
 
 
 const post2 = new Post({
-    title: "My Third Blog Post", 
-    content: "This is my my second blog post. Yippee.",
+    title: "My Tenth Blog Post", 
+    content: "This is filler content for a blog post.",
 	excerpt: "third blog post asdfjwoeiuewkfjkdhfweiuwr328947snhwhrfkdahks",
     date: new Date()
 })
