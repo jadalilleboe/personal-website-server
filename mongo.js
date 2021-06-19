@@ -39,9 +39,9 @@ const Post = mongoose.model('Post', postSchema)
 
 
 const post2 = new Post({
-    title: "My Tenth Blog Post", 
-    content: "This is filler content for a blog post.",
-	excerpt: "third blog post asdfjwoeiuewkfjkdhfweiuwr328947snhwhrfkdahks",
+    title: "Blog Post Test", 
+    content: "<p>Hello! I am trying out my blogging API that I just created. I want to see if I can add images or anything like that.</p><br><a href=\"http://google.com\">This is a link</a><br><p>This is some more text</p><p>This is a picture of a monkey</p><img src=\"https://ichef.bbci.co.uk/images/ic/1200x675/p01snr0c.jpg\"></img>",
+	excerpt: "This is essentially a 	 test for my blog API and server.",
     date: new Date()
 })
 post2.save().then(result => {

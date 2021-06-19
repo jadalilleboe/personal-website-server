@@ -30,6 +30,22 @@ app.get('/api/posts/:id', (request, response) => {
         })
 })
 
+app.post('/api/posts', (request, response) => {
+        const body = request.body
+        const post = new Post({
+            title = body.title,
+            content = body.content,
+            excerpt = body.excerpy,
+            date = new Date()
+        })
+        post
+            .save()
+            .then(savedPost => {
+                response.json(savedPost)
+            })
+    }
+)
+
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}`)
