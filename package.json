@@ -1,9 +1,12 @@
 {
+  "homepage": "https://jadalilleboe.github.io/node-test",
   "name": "pw_server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,8 +16,12 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "gh-pages": "^3.2.2",
     "mongoose": "^5.12.13",
     "mongoose-sequence": "^5.3.1",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.0"
   }
 }
