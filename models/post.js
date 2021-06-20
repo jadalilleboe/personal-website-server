@@ -17,20 +17,17 @@ const postSchema = new mongoose.Schema({
 	_id: Number,
 	title: String,
 	content: String,
-	excerpt: {
-		type: String,
-		maxLength: 200
-	},
+	excerpt: String,
 	date: { type: Date, default: Date.now },
 })
 
-// postSchema.set('toJSON', {
-// 	transform: (document, returnedObject) => {
-// 		returnedObject.id = returnedObject._id.toString()
-// 		delete returnedObject._id
-// 		delete returnedObject.__v
-// 	}
-// })
+postSchema.set('toJSON', {
+	transform: (document, returnedObject) => {
+		returnedObject.id = returnedObject._id.toString()
+		delete returnedObject._id
+		delete returnedObject.__v
+	}
+})
 
 postSchema.plugin(AutoIncrement)
 
