@@ -32,14 +32,12 @@ app.get('/api/posts/:id', (request, response) => {
 
 app.post('/api/posts', (request, response) => {
         const body = request.body
-        console.log(body)
         const post = new Post({
             title: body.title,
             content: body.content,
             excerpt: body.excerpt,
             date: new Date()
         })
-        console.log(post)
         post
             .save()
             .then(savedPost => {
