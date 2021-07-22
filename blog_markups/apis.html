@@ -1,2 +1,25 @@
 <!-- title: How I built an API for My Blog's Website -->
-<p>Creating this personal website has been my main project over these past few weeks. I started off working on the visual and frontend aspects of my website. </p>
+<p>Creating this personal website has been my main project over these past few weeks. I began by working on the visual and frontend aspects of my website. </p>
+
+<figure>
+    <img src="https://raw.githubusercontent.com/jadalilleboe/personal-website-server/main/.github/images/webpic1.png" alt="Homepage of Jada Lilleboe's Website">
+    <figcaption>Homepage of my website</figcaption>
+</figure>
+<figure>
+    <img src="https://raw.githubusercontent.com/jadalilleboe/personal-website-server/main/.github/images/webpic2.png" alt="About Page of Jada Lilleboe's Website">
+    <figcaption>About Page</figcaption>
+</figure>
+
+<p> I used HTML, CSS, React, and React Bootstrap to create these frontend elements. These tools were great for creating the purely visual aspects of my website, however, I discovered their limits when I decided I wanted to add a blog to my website.</p>
+
+<img src="https://raw.githubusercontent.com/jadalilleboe/personal-website-server/main/.github/images/blogpic.png" alt="Blog Page of Jada Lilleboe's Website">
+
+<p>I realized that if I wanted to create a set of blog posts with React, I would have to hard code every single blog post into the React application. I wanted to dynamically render my blog posts and store them outside of the React application.So, I decided to create a backend server and API that my React frontend could communicate with.</p>
+
+<h2>Purpose of Server and API</h2>
+
+<p>I made a server so my frontend would be able to make requests elsewhere to get the data it needed. In this case, my frontend would make a request to the backend to get data about all of the blog posts that need rendering. Then, my React frontend can render all of these posts without having their content hard-coded into the application. Yay!</p>
+
+<p>My server also functions as an API. I created endpoints that can accept GET and POST requests. If I want to create a new blog post, I make a POST request to the API. If I want to get all of the data about the blog posts, I make a GET request to the API (this is what my React frontend does).</p>
+
+<p>However, the data about my blog posts is not actually stored in the backend server. For storing the blog posts, I created a database to hold information such as the title of the blog post, content of the blog post, and they day it was created. Because data is not stored in the server, my server has to connect to the database and get the data from there. This flow of data from the frontend to the backend to the database is called the Controller-Model-View Schema.</p>
